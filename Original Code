@@ -1,0 +1,102 @@
+<html>
+<head>
+   <script>
+   </script>
+</head>
+<body>
+ <h1>
+  Fast Fashion:   
+ </h1>
+ Polyester:
+ <input type="text" id="poly" name="b" />
+ <h1>
+ </h1>
+ Organic:
+ <input type="text" id="organ" name="d" />
+ <h1>
+ </h1>
+ Acrylic:
+ <input type="text" id="acry" name="f" />
+ <h1>
+ </h1>
+ Cotton:
+ <input type="text" id="cot" name="h" />
+ <h1>
+ </h1>
+ Nylon:
+ <input type="text" id="nyl" name="j" />
+ <h1>
+ </h1>
+ Denim:
+ <input type="text" id="den" name="l" />
+ //<input type="text" id="totalFibersProduced" name="l" /> //TODO
+ <h2> </h2>
+ Total Microfibers Produced: 
+ <h2> </h2>
+ Total Microfibers Produced in One Year: 
+ <h2> </h2>
+ Total Microfibers Produced in Ten Years:  
+ <h2> </h2>
+ Total Microfibers Produced in Sixty Years:  
+
+<img src="cotton.jpeg" alt="cotton" width="500" height="333">
+
+  //start of initial calculator per wash
+//declaring variables
+//to calculate terrorScore Poly
+   var x = document.getElementById('a').value;
+   var wardrobe = [];
+   print(x);
+   var terrorScorePoly = 496,030;
+   var terrorScoreOrgan = 0;
+   var terrorScoreAcry = 728,789;
+   var terrorScoreCot = 490,000 ;
+   var terrorScoreNylon =521,045
+   var terrorScoreDenim = 0;
+   var polyester = [1, terrorScorePoly];//first para is userinput number of items
+   var organic = [2, terrorScoreOrgan];
+   var acrylic = [3, terrorScoreAcry];
+   var cotton = [4, terrorScoreCot];
+   var denim = [5, terrorScoreDenim];
+   var impactTerrorScore;//amount of fibers produced
+   wardrobe = [polyester, organic, acrylic, cotton];
+   //iterates over list of lists and stores values
+   for(var i = 0; i < wardrobe.length; i++){
+       impactTerrorScore = wardrobe[i][0] * wardrobe[i][1];
+       // println("i is = " + i);
+       // println("Name of list is = " + wardrobe[i]);
+       println("impact score = " + impactTerrorScore);
+   }
+
+   //calculator per year
+   var washesPerWeek; //userinput
+   var totalTerrorCausedInOneYear = impactTerrorScore * washesPerWeek * 4 * 12;
+   println("totalTerrorCausedInOneYear = " + totalTerrorCausedInOneYear);
+   var totalTerrorCausedInTenYears = impactTerrorScore * washesPerWeek * 4 * 12 * 10;
+   println("totalTerrorCausedInTenYears = " + totalTerrorCausedInTenYear);
+   var totalTerrorCausedInSixtyYear = impactTerrorScore * washesPerWeek * 4 * 12 * 60;
+   println("totalTerrorCausedInSixtyYears = " + totalTerrorCausedInSixtyYear);
+   //end of calculations for x number of years
+
+   //Calculator for the depreciating waste caused by certain fabrics over 1-10, and by 10s washes
+   var typeOfCloth; //userinput
+   var timesWashed; //userinput
+   var percentageLessFibroPolyPerWash; //userinput
+   var intialWastePoly;
+   var currentPolyWaste = intialWastePoly;
+   if (typeOfCloth === polyester){
+       currentPolyWaste = currentPolyWaste - ((percentageLessFibroPolyPerWash * currentPolyWaste) * timesWashed);
+   }
+   if (currentPolyWaste < 0){
+       print("Negative amounts of waste cannot be produced");//ERROR
+   }
+if (impactTerrorScore < 1000){
+      print("Keep following your current fashion choices they are great for the environment! You are currently producing "+ impactTerrorScore +" microfiber particles per weekly wash. If you continue following this trend you will produce "+ totalTerrorCausedInTenYears +" microfibers in 10 years.")
+  } else if (impactTerrorScore < 2000){
+      print("You are making a positive impact on the environment. You are currently producing"+ impactTerrorScore + "microfiber particles per weekly wash. If you continue following this trend you will produce" +totalTerrorCausedInTenYears+ "microfibers in 10 years. We recommend that you switch to organic clothing."
+)
+  } else if (impactTerrorScore < 3000){
+      print("Oh no! Try to reduce your use of fast fashion clothing by buying fewer clothes, and increasing the longevity of your existing clothes. You are currently producing"+ impactTerrorScore + "microfiber particles per weekly wash. If you continue following this trend you will produce" +totalTerrorCausedInTenYears+ "microfibers in 10 years."
+  } else if (impactTerrorScore < 4000){
+       print("YIKESSS!!! You are currently producing"+ impactTerrorScore + "microfiber particles per weekly wash. If you continue following this trend you will produce" +totalTerrorCausedInTenYears+ "microfibers in 10 years. We recommend that you switch to organic clothing, reduce your use of fast fashion clothing by buying fewer clothes, and increase the longevity of your existing clothes."
+  }
